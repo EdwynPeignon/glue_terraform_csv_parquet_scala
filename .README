@@ -1,0 +1,27 @@
+This is a terraform to deploy an example of a scala glue job to convert a csv file to a parquet file.
+
+The scala code is for a specific csv you can download it here : https://data.cms.gov/Medicare-Inpatient/Inpatient-Prospective-Payment-System-IPPS-Provider/97k6-zzx3
+If you want to adapt it for your csv just change the mapping.
+
+To deploy this project follow this commands:
+
+terraform init -backend-config=backend/backend.config
+terraform plan -var-file=tfvars/example_glue.tfvars
+terraform apply -var-file=tfvars/example_glue.tfvars
+
+To destroy the resources use : terraform destroy -var-fil=tfvars/example_glue.tfvars
+
+
+## Setting for the project
+
+First modify the backend.config and the tfvars files.
+
+You should after import the csv file in an S3.
+Once you have done that just launch the crawler to generate a table.
+
+Get the table name in you glue console and modify the scala variable table_name.
+Load your scala to an S3 and specify the path in the tfvars.
+Launch the job and it'll generate you a parquet file.
+
+Once you got it you can check if you have the same numbers of raw for each file.
+Create a crawler for your parquet file and check it.
