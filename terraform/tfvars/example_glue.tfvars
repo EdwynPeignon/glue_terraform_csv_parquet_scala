@@ -1,0 +1,10 @@
+region = "eu-west-1"
+scala_bucket_path = "my_bucket_name/my_scala.scala"
+my_temporary_directory = "my_temp_bucket/dir"
+class_name_scala = "GlueApp"
+name_job = "csv_to_parquet"
+max_capacity_DPU = 2
+timeout_in_minute = 60
+crawler_name = "my_crawler"
+csv_key_crawler = "my_bucket/name_csv.csv"
+catalogue_name = "my_catalogue"
